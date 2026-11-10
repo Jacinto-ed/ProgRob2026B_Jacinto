@@ -55,7 +55,7 @@ Visualization Manager:
       Description Source: Topic
       Description Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /robot_description
@@ -114,6 +114,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        world:
+          Value: true
         base_link:
           Value: true
         first_link:
@@ -134,15 +136,16 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        base_link:
-          first_link:
-            second_link:
-              third_link:
-                gripper_base:
-                  gripper_finger_left:
-                    {}
-                  gripper_finger_right:
-                    {}
+        world:
+          base_link:
+            first_link:
+              second_link:
+                third_link:
+                  gripper_base:
+                    gripper_finger_left:
+                      {}
+                    gripper_finger_right:
+                      {}
       Update Interval: 0
       Value: true
   Enabled: true
