@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="wheel" params="name x y">
+  <!-- Define la geometría, colisión, inercia y articulación de cada rueda. -->
+<xacro:macro name="wheel" params="name x y">
 
     <link name="${name}_link">
       <visual>

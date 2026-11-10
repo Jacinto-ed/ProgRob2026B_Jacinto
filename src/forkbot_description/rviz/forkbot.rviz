@@ -126,6 +126,58 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        carriage_link:
+          Value: true
+        counterweight_link:
+          Value: true
+        fork_left_link:
+          Value: true
+        fork_right_link:
+          Value: true
+        front_left_link:
+          Value: true
+        front_right_link:
+          Value: true
+        mast_link:
+          Value: true
+        rear_left_link:
+          Value: true
+        rear_right_link:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        base_link:
+          counterweight_link:
+            {}
+          front_left_link:
+            {}
+          front_right_link:
+            {}
+          mast_link:
+            carriage_link:
+              fork_left_link:
+                {}
+              fork_right_link:
+                {}
+          rear_left_link:
+            {}
+          rear_right_link:
+            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48

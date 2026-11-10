@@ -4,6 +4,7 @@ from ament_index_python.packages import get_package_share_directory
 from pathlib import Path
 import xacro
 
+# Configura la visualizacion del robot y los controles de sus articulaciones.
 def generate_launch_description():
     ruta = Path(get_package_share_directory("forkbot_description")) / "urdf" / "forkbot.urdf.xacro"
     descripcion = xacro.process_file(str(ruta)).toxml()
