@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="forkbot">
+
+  <!-- Chasis principal: 60 x 48 x 18 cm -->
+  <material name="amarillo">
+    <color rgba="0.95 0.68 0.05 1.0"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.60 0.48 0.18"/>
+      </geometry>
+      <material name="amarillo"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.60 0.48 0.18"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="18.0"/>
+      <inertia ixx="0.3942" ixy="0" ixz="0"
+               iyy="0.5886" iyz="0" izz="0.8856"/>
+    </inertial>
+  </link>
+
+
+  <!-- Cuatro ruedas del montacargas -->
+  <xacro:include filename="forkbot_wheels.xacro"/>
+
+  <xacro:wheel name="front_left" x="0.21" y="0.26"/>
+  <xacro:wheel name="front_right" x="0.21" y="-0.26"/>
+  <xacro:wheel name="rear_left" x="-0.21" y="0.26"/>
+  <xacro:wheel name="rear_right" x="-0.21" y="-0.26"/>
+
+
+  <!-- Mastil delantero del montacargas -->
+  <xacro:include filename="forkbot_mast.xacro"/>
+  <xacro:forkbot_mast/>
+
+
+  <!-- Contrapeso trasero -->
+  <xacro:include filename="forkbot_counterweight.xacro"/>
+  <xacro:forkbot_counterweight/>
+
+
+  <!-- Elevador del montacargas -->
+  <xacro:include filename="forkbot_lift.xacro"/>
+  <xacro:forkbot_lift/>
+
+
+  <!-- Horquillas delanteras -->
+  <xacro:include filename="forkbot_forks.xacro"/>
+  <xacro:forkbot_fork name="fork_left" y="0.115"/>
+  <xacro:forkbot_fork name="fork_right" y="-0.115"/>
+
+</robot>

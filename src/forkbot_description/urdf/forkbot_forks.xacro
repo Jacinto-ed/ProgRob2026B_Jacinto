@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Horquillas del montacargas -->
+  <xacro:macro name="forkbot_fork" params="name y">
+
+    <link name="${name}_link">
+      <visual>
+        <geometry>
+          <box size="0.36 0.045 0.025"/>
+        </geometry>
+        <material name="metal">
+          <color rgba="0.55 0.57 0.60 1"/>
+        </material>
+      </visual>
+
+      <collision>
+        <geometry>
+          <box size="0.36 0.045 0.025"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <mass value="0.4"/>
+        <inertia ixx="0.000088" ixy="0" ixz="0"
+                 iyy="0.00434" iyz="0" izz="0.004388"/>
+      </inertial>
+    </link>
+
+    <joint name="${name}_fixed_joint" type="fixed">
+      <parent link="carriage_link"/>
+      <child link="${name}_link"/>
+      <origin xyz="0.19 ${y} -0.08"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>

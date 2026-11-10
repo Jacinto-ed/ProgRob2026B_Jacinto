@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Carro elevador de las horquillas -->
+  <xacro:macro name="forkbot_lift">
+
+    <link name="carriage_link">
+      <visual>
+        <geometry>
+          <box size="0.06 0.34 0.16"/>
+        </geometry>
+        <material name="amarillo"/>
+      </visual>
+
+      <collision>
+        <geometry>
+          <box size="0.06 0.34 0.16"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <mass value="1.5"/>
+        <inertia ixx="0.01765" ixy="0" ixz="0"
+                 iyy="0.00365" iyz="0" izz="0.0149"/>
+      </inertial>
+    </link>
+
+    <joint name="lift_joint" type="prismatic">
+      <parent link="mast_link"/>
+      <child link="carriage_link"/>
+      <origin xyz="0.105 0 -0.41"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="0.0" upper="0.42"
+             effort="100.0" velocity="0.15"/>
+      <dynamics damping="8.0" friction="2.0"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>

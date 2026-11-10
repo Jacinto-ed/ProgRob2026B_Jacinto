@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Contrapeso trasero de ForkBot -->
+  <xacro:macro name="forkbot_counterweight">
+
+    <link name="counterweight_link">
+      <visual>
+        <geometry>
+          <box size="0.18 0.36 0.12"/>
+        </geometry>
+        <material name="gris_contrapeso">
+          <color rgba="0.25 0.25 0.28 1"/>
+        </material>
+      </visual>
+
+      <collision>
+        <geometry>
+          <box size="0.18 0.36 0.12"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <mass value="8.0"/>
+        <inertia ixx="0.096" ixy="0" ixz="0"
+                 iyy="0.0312" iyz="0" izz="0.108"/>
+      </inertial>
+    </link>
+
+    <joint name="counterweight_fixed_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="counterweight_link"/>
+      <origin xyz="-0.20 0 0.16"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>
